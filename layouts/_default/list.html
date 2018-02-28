@@ -7,9 +7,14 @@
   <div class="mw8 center">
     {{ $paginator := .Paginate (where .Data.Pages "Section" .Section) }}
     <section class="flex-ns flex-wrap justify-around mt5">
-      {{ range  $paginator.Pages }}
+      {{ range  $index, $element := $paginator.Pages }}
         <div class="relative w-100  mb4 bg-white">
+          {{ $odd := (mod $index 2) }}
+          {{ if $odd }}
           {{ partial "summary-with-image.html" . }}
+          {{ else }}
+          {{ partial "summary-with-image_rev.html" . }}
+          {{end}}
         </div>
       {{ end }}
     </section>
