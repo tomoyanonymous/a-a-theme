@@ -2,7 +2,7 @@
 
   <div class="w-100 w-30-l border-box pa0 mv3 grow no-underline"  >
     <a href="{{.URL}}" class="w-100 h-100 no-underline">
-    <div class="vh-50 w-100 inline-flex justify-center items-center pa4 cover bg-center" {{ if .Params.featured_image }} style= "background-image:url({{ $featured_image }})" {{ end }}>
+    <div class="vh-50 w-100 inline-flex flex-column justify-center items-center pv4 ph2 cover bg-center" {{ if .Params.featured_image }} style= "background-image:url({{ $featured_image }})" {{ end }}>
       {{ if .Params.featured_image }}
           {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
         {{ $featured_image := (trim $featured_image "/")  }}
@@ -10,7 +10,9 @@
           <span class="f3 f2-ns f3-l fw6 white-90 no-underline artist-icon" style="text-shadow: 0 0 10px rgba(200,200,200,0.6),0 0 20px #fff;">
               {{ .Title }}
           </span>
-
+          <span class="f4 tc white-90 no-underline artist-icon" style="text-shadow: 0 0 10px rgba(200,200,200,0.6),0 0 20px #fff;">
+              {{ .Params.performance_title }}
+          </span>
       {{ end }}
 
       </div>
